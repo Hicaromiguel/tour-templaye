@@ -1,0 +1,278 @@
+:root {
+  --ink: #0a2229;
+  --lagoon: #0b3a45;
+  --lagoonDeep: #06232b;
+  --foam: #f3f8f7;
+  --mist: #dce8e6;
+  --white: #ffffff;
+  --muted: #4b6670;
+  --wa: #0f7a3f;
+  --waDark: #0b5f30;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--foam);
+  color: var(--ink);
+  font-family: "Manrope", system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", "Manrope", sans-serif;
+  line-height: 1.1;
+}
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: rgba(243, 248, 247, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--mist);
+}
+
+.topBarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.brand {
+  font-family: "Bricolage Grotesque", "Manrope", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  min-height: min(78vh, 680px);
+  background-color: var(--lagoon);
+  background-image: linear-gradient(to top, rgba(6, 35, 43, 0.9) 0%, rgba(6, 35, 43, 0.4) 55%, rgba(6, 35, 43, 0.15) 100%), var(--heroImage);
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+}
+
+.heroInner {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 56px;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.heroText {
+  max-width: 46ch;
+  margin: 20px 0 28px;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .heroInner {
+    animation: riseIn 0.7s ease-out both;
+  }
+}
+
+.tours {
+  padding-top: 64px;
+}
+
+.tours h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.empty {
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+.tourGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--white);
+}
+
+.cardPhoto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--lagoon), #2c7a86);
+}
+
+.cardPhoto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardDuration {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 22px 24px;
+}
+
+.cardBody h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.cardBody p {
+  flex: 1;
+  margin: 0;
+  color: var(--muted);
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price {
+  font-family: "Bricolage Grotesque", "Manrope", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.perPerson {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.waButton {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: var(--wa);
+  color: var(--white);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.waButton:hover {
+  background: var(--waDark);
+}
+
+.waButton:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.waButton.small {
+  padding: 9px 18px;
+  font-size: 0.95rem;
+}
+
+.card .waButton {
+  display: block;
+}
+
+.hero .waButton:focus-visible {
+  outline-color: var(--white);
+}
+
+.footer {
+  margin-top: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: var(--lagoonDeep);
+  color: #d5e5e2;
+}
+
+.footerInner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (max-width: 700px) {
+  .heroInner {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .tours {
+    padding-top: 48px;
+  }
+}
