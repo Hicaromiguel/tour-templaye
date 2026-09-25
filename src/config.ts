@@ -1,8 +1,9 @@
 export const config = {
-  businessName: "One Click",
-  phone: "5583996241473",
-  displayPhone: "(83) 99624-1473",
-  hours: "Atendimento todos os dias",
-  defaultMessage: "Olá! Vim pelo site e quero saber mais sobre os passeios.",
+  businessName: "ONE CLICK",
+  logoImage: "/images/logo.png",
+  phone: "558396241473",
+  displayPhone: "+55 83 9624-1473",
+  hours: "Atendimento de Sábado à domingo",
+  defaultMessage: "Olá! gostaria de agendar um passeio.",
   heroImage: "/images/praia-bela.png",
 };

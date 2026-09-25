@@ -1,13 +1,15 @@
 import type { Tour } from "../data/tours";
 import { FormatPrice } from "../utils/whatsapp";
-import WhatsAppButton from "./WhatsAppButton";
 
 interface TourCardProps {
   tour: Tour;
+  onSelect: (tourId: string) => void;
 }
 
-export default function TourCard({ tour }: TourCardProps) {
-  const message = `Olá! Quero saber mais sobre o passeio "${tour.name}".`;
+export default function TourCard({ tour, onSelect }: TourCardProps) {
+  function HandleClick() {
+    onSelect(tour.id);
+  }
 
   return (
     <article className="card">
@@ -25,7 +27,9 @@ export default function TourCard({ tour }: TourCardProps) {
             <span className="price">{FormatPrice(tour.price)}</span>
             <span className="perPerson">por pessoa</span>
           </div>
-          <WhatsAppButton message={message} label="Chamar no WhatsApp" />
+          <button type="button" className="waButton outline" onClick={HandleClick}>
+            Saiba mais
+          </button>
         </div>
       </div>
     </article>

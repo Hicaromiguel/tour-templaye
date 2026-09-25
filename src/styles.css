@@ -2,12 +2,13 @@
   --ink: #0a2229;
   --lagoon: #0b3a45;
   --lagoonDeep: #06232b;
-  --foam: #f3f8f7;
+  --foam: #d1ddda;
   --mist: #dce8e6;
   --white: #ffffff;
   --muted: #4b6670;
   --wa: #0f7a3f;
-  --waDark: #0b5f30;
+  --waDark: #0b5f30; 
+  --waClick: #082916;
 }
 
 * {
@@ -32,16 +33,14 @@ body {
   line-height: 1.55;
 }
 
-h1,
-h2,
-h3 {
+h1,h2,h3 {
   margin: 0;
   font-family: "Bricolage Grotesque", "Manrope", sans-serif;
   line-height: 1.1;
 }
 
 .wrap {
-  max-width: 1120px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-left: 24px;
   padding-right: 24px;
@@ -146,8 +145,9 @@ h3 {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 10px;
   background: var(--white);
+  border: 2px solid #1d1c21c6;
 }
 
 .cardPhoto {
@@ -156,6 +156,10 @@ h3 {
   background: linear-gradient(135deg, var(--lagoon), #2c7a86);
 }
 
+.topBar img { 
+  width: 120px;
+  
+}
 .cardPhoto img {
   display: block;
   width: 100%;
@@ -228,10 +232,19 @@ h3 {
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+
+  transition: transform 0.2s ease-in-out;
 }
 
 .waButton:hover {
   background: var(--waDark);
+  transform: scale(1.1);
+}
+
+.waButton:active{
+    transform: scale(1.0);
+    background: var(--waClick);
+
 }
 
 .waButton:focus-visible {
@@ -274,5 +287,160 @@ h3 {
 
   .tours {
     padding-top: 48px;
+  }
+}
+
+.waButton.outline {
+  background: transparent;
+  color: var(--lagoon);
+  border: 2px solid var(--lagoon);
+  padding: 12px 24px;
+}
+
+.waButton.outline:hover {
+  background: var(--lagoon);
+  color: var(--white);
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 24px;
+  margin-bottom: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--lagoon);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.detail {
+  padding-bottom: 64px;
+}
+
+.detailLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.detailPhoto {
+  aspect-ratio: 4 / 3;
+  border-radius: 5px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--lagoon), #2c7a86);
+}
+
+.detailPhoto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detailInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardDuration.standalone {
+  position: static;
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--mist);
+}
+
+.detailInfo h2 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.detailDescription {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.detailPriceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.detailPriceRow .price {
+  font-size: 2.2rem;
+}
+
+.peoplePicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+  padding: 16px 18px;
+  background: var(--white);
+  border-radius: 14px;
+}
+
+.peopleLabel {
+  font-weight: 700;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stepperButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--lagoon);
+  background: var(--white);
+  color: var(--lagoon);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.stepperButton:hover {
+  background: var(--lagoon);
+  color: var(--white);
+}
+
+.stepperValue {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.totalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--stub, var(--mist));
+  border-radius: 14px;
+  font-size: 1.05rem;
+}
+
+.detailInfo .waButton {
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+@media (max-width: 800px) {
+  .detailLayout {
+    grid-template-columns: 1fr;
   }
 }
