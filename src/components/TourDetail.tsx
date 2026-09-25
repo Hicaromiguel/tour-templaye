@@ -19,7 +19,7 @@ export default function TourDetail({ tour, onBack }: TourDetailProps) {
   }
 
   const totalPrice = tour.price * peopleCount;
-  const message = `Olá! Gostaria de agendar um passeio "${tour.name}", com ${peopleCount} ${peopleLabel}. Poderiamos agendar?`;
+  const message = `Olá! Gostaria de agendar o passeio "${tour.name}", com ${peopleCount} ${peopleLabel}. Poderiamos agendar?`;
 
   return (
     <section className="detail wrap">
@@ -29,21 +29,27 @@ export default function TourDetail({ tour, onBack }: TourDetailProps) {
 
       <div className="detailLayout">
         <div className="detailPhoto">
-          {tour.image && <img src={tour.image} alt={tour.name} />}
+          <img src={tour.image} alt={tour.name} />
         </div>
 
         <div className="detailInfo">
-          <span className="cardDuration standalone">{tour.duration}</span>
+          <span className="menuLocation">{tour.location}</span>
           <h2>{tour.name}</h2>
           <p className="detailDescription">{tour.description}</p>
 
+          <ul className="detailHighlights">
+            {tour.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+
           <div className="detailPriceRow">
             <span className="price">{FormatPrice(tour.price)}</span>
-            <span className="perPerson">por pessoa</span>
+            <span className="perPerson">por pessoa · {tour.duration}</span>
           </div>
 
           <div className="peoplePicker">
-            <span className="peopleLabel">Quantos pessoas?</span>
+            <span className="peopleLabel">Quantas pessoas?</span>
             <QuantityStepper value={peopleCount} onChange={setPeopleCount} />
           </div>
 

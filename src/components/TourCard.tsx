@@ -12,23 +12,29 @@ export default function TourCard({ tour, onSelect }: TourCardProps) {
   }
 
   return (
-    <article className="card">
-      <div className="cardPhoto">
-        {tour.image && <img src={tour.image} alt={tour.name} loading="lazy" />}
-        <span className="cardDuration">{tour.duration}</span>
+    <article className="menuRow">
+      <div className="menuPhoto">
+        <img src={tour.image} alt={tour.name} loading="lazy" />
       </div>
 
-      <div className="cardBody">
+      <div className="menuInfo">
+        <span className="menuLocation">{tour.location}</span>
         <h3>{tour.name}</h3>
         <p>{tour.description}</p>
 
-        <div className="cardFooter">
-          <div className="priceRow">
+        <ul className="menuHighlights">
+          {tour.highlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
+
+        <div className="menuFooter">
+          <div className="priceBlock">
             <span className="price">{FormatPrice(tour.price)}</span>
-            <span className="perPerson">por pessoa</span>
+            <span className="perPerson">por pessoa · {tour.duration}</span>
           </div>
           <button type="button" className="waButton outline" onClick={HandleClick}>
-            Saiba mais
+            Ver detalhes
           </button>
         </div>
       </div>
