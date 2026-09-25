@@ -1,5 +1,4 @@
 import { useState } from "react";
-import type { CSSProperties } from "react";
 import TourCard from "./components/TourCard";
 import TourDetail from "./components/TourDetail";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -9,7 +8,6 @@ import { config } from "./config";
 export default function App() {
   const [selectedTourId, setSelectedTourId] = useState<string | null>(null);
 
-  const heroStyle = { "--heroImage": `url(${config.heroImage})` } as CSSProperties;
   const selectedTour = tours.find((tour) => tour.id === selectedTourId);
 
   function HandleSelect(tourId: string) {
@@ -23,7 +21,7 @@ export default function App() {
 
   let mainContent = (
     <>
-      <section className="hero" style={heroStyle}>
+      <section className="hero">
         <div className="heroPanel">
           <span className="heroKicker">{config.businessName}</span>
           <h1>
@@ -34,8 +32,12 @@ export default function App() {
           <p className="heroText">
             Piscinas naturais, pôr do sol e a orla da cidade vistos do mar. Escolha o passeio e feche o agendamento direto pelo WhatsApp.
           </p>
-          <WhatsAppButton message={config.defaultMessage} label="Falar no WhatsApp" />
+          <WhatsAppButton message={config.defaultMessage} label="WhatsApp" />
           <span className="heroHours">{config.hours}</span>
+        </div>
+
+        <div className="heroPhoto">
+          <img src={config.heroImage} alt="Praia Bela, João Pessoa" />
         </div>
       </section>
 
@@ -66,7 +68,7 @@ export default function App() {
 
           <div className="howStep">
             <span className="howNumber">2</span>
-            <h3>Chame no WhatsApp</h3>
+            <h3>WhatsApp</h3>
             <p>A mensagem já sai pronta com o passeio e a quantidade de pessoas.</p>
           </div>
 
@@ -86,11 +88,6 @@ export default function App() {
               Os passeios saem das praias da Praia Bela e dos Seixas, na região sul de João Pessoa, conhecidas pelas piscinas
               naturais na maré baixa e pelas falésias na orla.
             </p>
-          </div>
-
-          <div className="areaGallery">
-            <img src="/images/praia-bela.png" alt="Praia Bela, João Pessoa" />
-            <img src="/images/seixas.png" alt="Praia dos Seixas, João Pessoa" />
           </div>
         </div>
       </section>

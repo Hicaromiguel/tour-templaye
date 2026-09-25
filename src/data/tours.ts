@@ -19,7 +19,7 @@ export const tours: Tour[] = [
     duration: "2 horas",
     price: 100,
     image: "/images/catamara.jpg",
-    highlights: ["Saída de catamarã", "Parada nas piscinas naturais", "Colete salva-vidas incluso"],
+    highlights: ["Passeio no barco", "Parada em piscinas naturais", "Coletes inclusos"],
   },
   {
     id: "sunset",
@@ -30,6 +30,6 @@ export const tours: Tour[] = [
     duration: "2 horas",
     price: 70,
     image: "/images/seixas.png",
-    highlights: ["Saída no fim da tarde", "Vista da falésia dos Seixas", "Ideal para casais e grupos"],
+    highlights: ["Saída no fim da tarde", "Rápido", "Ideal para casais e grupos"],
   },
 ];

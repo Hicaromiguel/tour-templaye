@@ -1,8 +1,8 @@
 export const config = {
-  businessName: "ONE CLICK",
-  logoImage: "/images/logo.png",
-  phone: "558396241473",
-  displayPhone: "+55 83 9624-1473",
+  businessName: "SUA MARCA",
+  logoImage: "/images/sua-logo.png",
+  phone: "900000000000",
+  displayPhone: "SEU NUMERO",
   hours: "Atendimento de Sábado à domingo",
   defaultMessage: "Olá! gostaria de agendar um passeio.",
   heroImage: "/images/praia-bela.png",
